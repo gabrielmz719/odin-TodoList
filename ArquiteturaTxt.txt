@@ -1,0 +1,5 @@
+O usuário pode criar deletar e visualizar projetos 
+Os projetos vão ser armazenados na memória 
+dentro dos projetos  o usuario vai poder criar as devidas tarefas 
+trafeas que vão ter Id titulo descrição data prioridade e uma cheklist 
+o usuario pode criar editar e depois deletar se desejar a tarefa e assim que ele checkar a tarefa pode ser 
