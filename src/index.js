@@ -1,7 +1,8 @@
 // index.js
-import { greeting } from "./modulos/greeting";
 import { project } from "./modulos/project";
-
+import { viewProject } from "./componentes/projectView";
 
 import "./styles/styles.css";
+
+viewProject();
 

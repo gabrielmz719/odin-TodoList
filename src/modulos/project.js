@@ -12,5 +12,4 @@ export function projectFactory(title,description,deadline){
     }
 
 }
-const project = projectFactory('Sistema', 'Criar API', '2026-01-10');
-console.log(project)
+
