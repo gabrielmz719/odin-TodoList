@@ -1,5 +1,5 @@
 // index.js
-import { greeting } from "./greeting.js";
-import "./styles.css";
+import { greeting } from "./modulos/greeting";
+import "./styles/styles.css";
 
 console.log(greeting);
