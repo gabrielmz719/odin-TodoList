@@ -8,9 +8,18 @@ const defaultProject = projectFactory(
     '2026-01-01'
 );
 
+
+
 projects.push(defaultProject);
 
 export function getProjects(){
     return projects;
+}
+
+export function addProjects(title,description,deadline){
+    const project = projectFactory(title,description,deadline);
+    projects.push(project);
+    return project;
+
 }
 
