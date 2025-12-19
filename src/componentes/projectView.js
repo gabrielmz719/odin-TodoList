@@ -13,7 +13,7 @@ buttonDefaultProject.addEventListener('click', () => {
   viewProject(defaultProject);
 });
 
-// VIEW DO PROJETO
+
 export function viewProject(project) {
   const view = document.getElementById('content-container');
   view.innerHTML = `
@@ -23,7 +23,26 @@ export function viewProject(project) {
   `;
 }
 
-// CRIA O DIALOG
+function renderProjectButtons() {
+  const container = document.getElementById("sidebar"); // <-- alterado
+  container.innerHTML = "";
+
+  const allProjects = getProjects();
+
+  allProjects.forEach((project) => {
+    const btn = document.createElement("button");
+    btn.textContent = project.title;
+
+    btn.addEventListener("click", () => {
+      viewProject(project);
+    });
+
+    container.appendChild(btn);
+  });
+}
+
+
+
 export function createDialog() {
   const dialog = document.createElement("dialog");
 
@@ -70,6 +89,8 @@ dialog.querySelector('#projectForm').addEventListener('submit', (e) => {
   const deadline = dialog.querySelector("#deadline").value;
 
   const project = addProjects(title, description, deadline);
+
+  renderProjectButtons();
 
   viewProject(project);
 
