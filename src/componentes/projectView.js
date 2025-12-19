@@ -1,10 +1,17 @@
-import { project } from "../modulos/project";
+// import { project } from "../modulos/project";
+import { getProjects } from "../controllers/projectController";
+
+const projects = getProjects();
+const defaultProject = projects[0];
+
+
+
 
 const button = document.getElementById('default-project-btn');
 button.textContent = defaultProject.title;
 
 button.addEventListener('click', () => {
-  openProject(defaultProject);
+  viewProject(defaultProject);
 });
 
 export function viewProject(project) {
