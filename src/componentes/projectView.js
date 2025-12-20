@@ -1,5 +1,8 @@
 import { addProjects, getProjects } from "../controllers/projectController.js";
+import { createAddTaskButton } from "./tasksView.js";
 
+
+const addTask=createAddTaskButton();
 const projects = getProjects();
 const defaultProject = projects[0];
 
@@ -21,6 +24,7 @@ export function viewProject(project) {
     <p>${project.description}</p>
     <p>Prazo: ${project.deadline}</p>
   `;
+  view.appendChild(addTask)
 }
 
 function renderProjectButtons() {
@@ -43,7 +47,7 @@ function renderProjectButtons() {
 
 
 
-export function createDialog() {
+ function createDialog() {
   const dialog = document.createElement("dialog");
 
   dialog.innerHTML = `
@@ -71,7 +75,7 @@ export function createDialog() {
 
 const dialog = createDialog();
 
-// ABRE O DIALOG
+
 buttonAddProject.addEventListener('click', () => {
   dialog.showModal();
 });
@@ -82,7 +86,7 @@ cancelButton.addEventListener('click', () => {
   dialog.close();
 });
 
-// CAPTURA SUBMIT DO FORM
+
 dialog.querySelector('#projectForm').addEventListener('submit', (e) => {
   const title = dialog.querySelector("#title").value;
   const description = dialog.querySelector("#description").value;
