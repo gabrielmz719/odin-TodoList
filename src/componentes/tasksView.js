@@ -1,4 +1,4 @@
-import { addTasks, getTasks } from "../controllers/taskController";
+import { addTask, getTasks } from "../controllers/taskController";
 
 
 

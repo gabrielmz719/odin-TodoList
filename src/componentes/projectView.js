@@ -1,21 +1,8 @@
-import { addProjects, getProjects } from "../controllers/projectController.js";
+import { addProject, getProjects } from "../controllers/projectController.js";
 import { createAddTaskButton } from "./tasksView.js";
 
 
-const addTask=createAddTaskButton();
-const projects = getProjects();
-const defaultProject = projects[0];
-
-const buttonDefaultProject = document.getElementById('btnDefaultProject');
-buttonDefaultProject.textContent = defaultProject.title;
-
 const buttonAddProject = document.getElementById('btnAddProject');
-
-
-buttonDefaultProject.addEventListener('click', () => {
-  viewProject(defaultProject);
-});
-
 
 export function viewProject(project) {
   const view = document.getElementById('content-container');
@@ -24,26 +11,36 @@ export function viewProject(project) {
     <p>${project.description}</p>
     <p>Prazo: ${project.deadline}</p>
   `;
-  view.appendChild(addTask)
+  view.appendChild(createAddTaskButton());
 }
-
 function renderProjectButtons() {
-  const container = document.getElementById("sidebar"); // <-- alterado
+  const container = document.getElementById("sidebar"); 
   container.innerHTML = "";
 
-  const allProjects = getProjects();
-
-  allProjects.forEach((project) => {
+  getProjects().forEach((project)=>{
     const btn = document.createElement("button");
     btn.textContent = project.title;
-
-    btn.addEventListener("click", () => {
-      viewProject(project);
-    });
-
+    btn.addEventListener("click",()=> viewProject(project));
     container.appendChild(btn);
   });
 }
+
+
+
+const projects = getProjects();
+const defaultProject = projects[0];
+
+const buttonDefaultProject = document.getElementById('btnDefaultProject');
+buttonDefaultProject.textContent = defaultProject.title;
+
+
+
+buttonDefaultProject.addEventListener('click', () => {
+  viewProject(defaultProject);
+});
+
+
+
 
 
 
@@ -92,7 +89,7 @@ dialog.querySelector('#projectForm').addEventListener('submit', (e) => {
   const description = dialog.querySelector("#description").value;
   const deadline = dialog.querySelector("#deadline").value;
 
-  const project = addProjects(title, description, deadline);
+  const project = addProject(title, description, deadline);
 
   renderProjectButtons();
 

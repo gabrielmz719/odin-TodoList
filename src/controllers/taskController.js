@@ -5,11 +5,17 @@ const tasks = [];
 
 
 export function getTasks(){
-    return tasks;
+    return [...tasks];
 }
 
-export function addTasks(title,description,dueDate,priority,checlist){
-    const task = taskFactory(title,description,dueDate,priority,checlist);
+export function addTask(title,description,dueDate,priority,checklist){
+    const task = taskFactory({
+        title,
+        description,
+        dueDate,
+        priority,
+        checklist
+    });
     tasks.push(task);
     return task;
 }
