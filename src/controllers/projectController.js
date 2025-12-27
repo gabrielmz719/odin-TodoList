@@ -10,7 +10,7 @@ const defaultProject = projectFactory({
 projects.push(defaultProject);
 
 export function getProjects() {
-    return [...projects];
+    return projects;
 }
 
 

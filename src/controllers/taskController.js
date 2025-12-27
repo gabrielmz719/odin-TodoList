@@ -1,22 +1,15 @@
 import { taskFactory } from "../modulos/task";
+import { getProjects } from "./projectController";
 
-const tasks = [];
+export function addTaskToProject(projectId, taskData) {
+  const project = getProjects().find(p => p.id === projectId);
 
+  if (!project) {
+    throw new Error('Projeto não encontrado');
+  }
 
+  const task = taskFactory(taskData);
+  project.tasks.push(task);
 
-export function getTasks(){
-    return [...tasks];
+  return task;
 }
-
-export function addTask(title,description,dueDate,priority,checklist){
-    const task = taskFactory({
-        title,
-        description,
-        dueDate,
-        priority,
-        checklist
-    });
-    tasks.push(task);
-    return task;
-}
-
