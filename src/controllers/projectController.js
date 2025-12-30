@@ -1,5 +1,6 @@
 import { projectFactory } from "../modulos/project";
 
+
 const STORAGE_KEY = "odin_projects";
 
 function loadProjects() {
@@ -45,6 +46,26 @@ export function addProject(title, description, deadline) {
     projects.push(project);
     saveProjects()
     return project;
+}
+
+export function updateProject(projectId, data) {
+    const project = projects.find(p => p.id === projectId);
+    if (!project) return;
+
+    project.title = data.title ?? project.title;
+    project.description = data.description ?? project.description;
+    project.deadline = data.deadline ?? project.deadline;
+
+    saveProjects();
+}
+
+export function deleteProject(projectId){
+    const index = projects.findIndex(p=>p.id===projectId);
+    if(index === -1)return;
+
+    projects.splice(index,1);
+    
+    saveProjects();
 }
 
 
