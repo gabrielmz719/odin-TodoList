@@ -1,8 +1,9 @@
 import { taskFactory } from "../modulos/task";
-import { getProjects } from "./projectController";
+import { saveProjects, getProjects } from "./projectController";
 
 export function addTaskToProject(projectId, taskData) {
-  const project = getProjects().find(p => p.id === projectId);
+  const projects = getProjects();
+  const project = projects.find(p => p.id === projectId);
 
   if (!project) {
     throw new Error('Projeto não encontrado');
@@ -10,6 +11,8 @@ export function addTaskToProject(projectId, taskData) {
 
   const task = taskFactory(taskData);
   project.tasks.push(task);
+
+  saveProjects(projects); 
 
   return task;
 }

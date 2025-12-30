@@ -6,7 +6,7 @@ let currentProject = null;
 const buttonAddProject = document.getElementById('btnAddProject');
 const buttonDefaultProject = document.getElementById('btnDefaultProject');
 const view = document.getElementById('content-container');
-
+const sidebar = document.getElementById('sidebar');
 
 
 export function viewProject(project) {
@@ -20,27 +20,27 @@ export function viewProject(project) {
     <p>Prazo: ${project.deadline ?? '—'}</p>
   `;
 
-  // renderiza tasks
+  
   project.tasks.forEach(task => {
     const taskEl = document.createElement('div');
     taskEl.textContent = task.title;
     view.appendChild(taskEl);
   });
 
-  // botão de adicionar task
+  
   view.appendChild(createAddTaskButton());
 }
 
 
+
 function renderProjectButtons() {
-  const container = document.getElementById("sidebar");
-  container.innerHTML = "";
+  sidebar.innerHTML = "";
 
   getProjects().forEach(project => {
     const btn = document.createElement("button");
     btn.textContent = project.title;
     btn.addEventListener("click", () => viewProject(project));
-    container.appendChild(btn);
+    sidebar.appendChild(btn);
   });
 }
 
@@ -48,12 +48,13 @@ function renderProjectButtons() {
 const projects = getProjects();
 const defaultProject = projects[0];
 
+renderProjectButtons();
+
 if (defaultProject) {
   buttonDefaultProject.textContent = defaultProject.title;
-  buttonDefaultProject.addEventListener('click', () => {
-    viewProject(defaultProject);
-  });
+  viewProject(defaultProject);
 }
+
 
 
 function createDialog() {
@@ -61,7 +62,6 @@ function createDialog() {
 
   dialog.innerHTML = `
     <form id="projectForm">
-
       <label>Título:</label>
       <input id="title" required>
 
@@ -106,6 +106,8 @@ dialog.querySelector('#projectForm').addEventListener('submit', (e) => {
 
   dialog.close();
 });
+
+
 
 export function getCurrentProject() {
   return currentProject;

@@ -2,10 +2,14 @@ import { addTaskToProject } from "../controllers/taskController";
 import { getCurrentProject } from "./projectView";
 import { viewProject } from "./projectView";
 
+let dialogTask = null; 
 
 export function createAddTaskButton() {
   const addTaskButton = document.createElement('button');
-  const dialogTask = createDialog();
+
+  if (!dialogTask) {
+    dialogTask = createDialog();
+  }
 
   const cancelAddTaskButton = dialogTask.querySelector('#cancelAddTask');
   const taskForm = dialogTask.querySelector('#taskForm');
@@ -20,7 +24,7 @@ export function createAddTaskButton() {
     dialogTask.close();
   });
 
-  taskForm.addEventListener('submit', (e) => {
+  taskForm.onsubmit = (e) => {
     e.preventDefault();
 
     const title = dialogTask.querySelector('#title').value;
@@ -30,7 +34,8 @@ export function createAddTaskButton() {
     const currentProject = getCurrentProject();
 
     if (!currentProject) {
-      throw new Error('Nenhum projeto selecionado');
+      alert('Selecione um projeto antes de adicionar uma task');
+      return;
     }
 
     addTaskToProject(currentProject.id, {
@@ -39,11 +44,11 @@ export function createAddTaskButton() {
       dueDate
     });
 
-    viewProject(currentProject);
+    viewProject(currentProject); 
 
     taskForm.reset();
     dialogTask.close();
-  });
+  };
 
   return addTaskButton;
 }
