@@ -16,4 +16,19 @@ export default class Task{
         return this.name
     }
 
+    setDate(dueDate){
+        this.dueDate = dueDate
+    }
+
+    getDate(){
+        return this.duedate
+    }
+
+    getDAteFormatted(){
+        const day = this.dueDate.split('/')[0]
+        const month = this.dueDate.split('/')[1]
+        const year = this.dueDate.split('/')[2]
+        return `${day}/${month}/${year}`
+
+    }
 }
