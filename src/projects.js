@@ -1,3 +1,4 @@
+ import { tarefa1 } from "./tasks";
  class Project{
     name;
     
@@ -13,6 +14,6 @@
 
 let projetoTeste = new Project('teste');
 
-projetoTeste.addTask('novaTask')
+projetoTeste.addTask(tarefa1)
 
 export const Teste = console.log(projetoTeste)

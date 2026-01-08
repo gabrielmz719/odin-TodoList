@@ -1,3 +1,3 @@
 
 // greeting.js
-export const greeting = alert('olá mundo');
+// export const greeting = alert('olá mundo');
