@@ -1,18 +1,40 @@
-class Task {
-    title;
-    description;
-    priority;
-    checklist;
+class Tarefa {
+    constructor(titulo,descricao,dueDate,notes = "",checklist = []){
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.dueDate = dueDate;
+        this.notes = notes;
+        this.checklist = checklist;
 
-    constructor(title, description, priority, checklist) {
-        this.title = title;
-        this.description = description;
-        this.priority = priority;
-        this.checklist = checklist
+    }
 
+    adcionarItemChecklist(item){
+        this.checklist.push({
+            texto: item,
+            concluido: false
+        })
+    }
+    marcarItemConcluido(index){
+        if(this.checklist[index]){
+            this.checklist[index].concluido = true;
+        }
+    }
+    removerItemChecklist(index){
+        this.checklist.splice(index,1);
     }
 }
 
-export let tarefa1 = new Task('tarefa1','description','importante','nao finalizada');
+export const tarefa1 = new Tarefa(
+    "Estudar javascript",
+    "Revisar classes e objetos",
+    "2026-02-01",
+    "Focar exmplos praticos"
+
+)
+
+tarefa1.adcionarItemChecklist('Ler documentação');
+
+
+
 
  

@@ -1,8 +1,11 @@
 // src/index.js
 import "./styles.css";
-import { greeting } from "./greeting.js";
-import { Teste } from "./projects.js";
-// import { Tarefa1 } from "./tasks.js";
+import { tarefa1 } from "./tasks";
+import { projeto1 } from "./projects";
+import { projetoPadrao } from "./projects";
 
+projeto1.adcionarTarefa(tarefa1)
 
+console.log(projetoPadrao)
 
+console.log(tarefa1)

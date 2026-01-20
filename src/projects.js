@@ -1,19 +1,21 @@
- import { tarefa1 } from "./tasks";
- class Project{
-    name;
-    
-    constructor(name){
-        this.name = name;
-        this.tasks = []
+class Projeto{
+    constructor(titulo,descricao){
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.tarefas = []
     }
-    addTask(newTask){
-
-        this.tasks.push(newTask)
+    adcionarTarefa(tarefa){
+        this.tarefas.push(tarefa)
     }
 }
 
-let projetoTeste = new Project('teste');
+export const projeto1 = new Projeto(
+    "Construir algo",
+    "Descrição da construção"
+)
 
-projetoTeste.addTask(tarefa1)
+export const projetoPadrao = new Projeto(
+    "Projeto Padrão",
+    "Descrição da construção",
+)
 
-export const Teste = console.log(projetoTeste)
