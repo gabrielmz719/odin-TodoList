@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <main>
-        <div id="conteudoPagina"></div>
-        <div id="pet-container"></div>
-        <button id="criarProjeto">Criar novo Projeto</button>
+        <div id="conteudoPagina">
+        </div>
+        <button id="btnCriarNovoProjeto">Criar Novo Projeto</button>
+
+
+
+        <!-- Estrutura do Modal (Formulário Oculto) -->
+        <dialog id="dialogProjeto" style="padding: 20px; border-radius: 8px;">
+            <form method="dialog">
+                <h3>Formulário Criação Projeto</h3>
+                <label>Nome Projeto:</label><br>
+                <input type="text" id="nomeProjeto" name="nomeProjeto" required><br><br>
+                <label>Descrição:</label><br>
+                <textarea rows="10" cols="30" minlength="10" maxlength="20" id="descricaoProjeto" name="descricaoProjeto"
+                    placeholder="Descrição do projeto minimo de caracteres 10 máximo 100"></textarea><br><br>
+                <button type="button" id="btnFechar">Fechar</button>
+                <button type="submit">Enviar</button>
+            </form>
+        </dialog>
+
+
     </main>
-    
+
 </body>
+
 </html>
