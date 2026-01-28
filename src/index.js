@@ -6,15 +6,30 @@ import { listaProjetos } from "./projects";
 
 
 
-const conteudo = document.getElementById("conteudoPagina");
 // conteudo.innerText = "";
+
 
 // const exibidos = new Set();
 
 function renderizarProjetos(listaProjetos) {
-   return [...new Set(listaProjetos.map(obj => obj.titulo))];
-  
+  const conteudo = document.getElementById("conteudoPagina");
+
+  // limpa antes de renderizar (importante se chamar a função mais de uma vez)
+  conteudo.innerHTML = "";
+
+  const titulosUnicos = [...new Set(listaProjetos.map(obj => obj.titulo))];
+
+  titulosUnicos.forEach(titulo => {
+    const div = document.createElement("div");
+    const h2 = document.createElement("h2");
+
+    h2.textContent = titulo;
+
+    div.appendChild(h2);
+    conteudo.appendChild(div);
+  });
 }
+
 
 
 console.log(renderizarProjetos(listaProjetos));
