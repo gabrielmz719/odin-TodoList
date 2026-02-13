@@ -330,4 +330,8 @@ Antes de escrever código, responda:
 * Posso testar isso isoladamente?
 * Isso facilita manutenção futura?
 
+# Protótipo do projeto
+![Print do protótipo](./prototipo/taskApp-home.PNG)
+
+
 > O sistema deve ser simples, claro e sustentável a longo prazo.
