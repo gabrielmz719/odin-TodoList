@@ -9,27 +9,16 @@
 
 <body>
     <main>
-        <div id="conteudoPagina">
-        </div>
-        <button id="btnCriarNovoProjeto">Criar Novo Projeto</button>
+        <button id="abreModalProjetoBtn">Novo Projeto</button>
 
-
-
-        <!-- Estrutura do Modal (Formulário Oculto) -->
-        <dialog id="dialogProjeto" style="padding: 20px; border-radius: 8px;">
-            <form method="dialog">
-                <h3>Formulário Criação Projeto</h3>
-                <label>Nome Projeto:</label><br>
-                <input type="text" id="nomeProjeto" name="nomeProjeto" required><br><br>
-                <label>Descrição:</label><br>
-                <textarea rows="10" cols="30" minlength="10" maxlength="20" id="descricaoProjeto" name="descricaoProjeto"
-                    placeholder="Descrição do projeto minimo de caracteres 10 máximo 100"></textarea><br><br>
-                <button type="button" id="btnFechar">Fechar</button>
-                <button type="submit">Enviar</button>
-            </form>
-        </dialog>
-
-
+<dialog id="dialogCriarProjeto">
+  <h2>Crie um novo projeto</h2>
+  <input type="text" placeholder="Titulo" />
+  <input type="text" placeholder="descricao" />
+  <button id="criarProjetoBtn">Criar Projeto</button>
+  <button id="cancelarProjetoBtn">Cancelar</button>
+</dialog>
+        
     </main>
 
 </body>
