@@ -13,7 +13,7 @@ export function inicializar() {
 
   document.getElementById('criarProjetoBtn').addEventListener('click', () => {
     if (criarProjetos()) {
-      
+
       dialog.close();
     }
 
@@ -33,10 +33,16 @@ export function criarProjetos() {
   const project = new Project(projectTitle, projectDescription)
 
   document.getElementById("resultadoProjetos").innerHTML = ` 
-        <h3>Projeto criado!</h3>
-        <p><strong>Titulo:</strong> ${project.title}</p>
-        <p><strong>Descrição:</strong> ${project.description}</p>`;
+         <button onclick="exibirProjetos('${project.title}', '${project.description}')">
+          ${project.title}
+          </button>
+        `;
   return true;
+}
 
-
+window.exibirProjetos = function (titulo,descricao){
+  document.getElementById("detalhesProjeto").innerHTML =`
+    <h3>${titulo}</h3>
+    <p>${descricao}</p>
+  `;
 }
