@@ -1,31 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
 <body>
-    <main>
-        <button id="abreModalProjetoBtn">Novo Projeto</button>
+  <main>
+    <button id="abreModalProjetoBtn">Novo Projeto</button>
 
-<dialog id="dialogCriarProjeto">
-  <h2>Crie um novo projeto</h2>
-  <input id="projecTitle" type="text" placeholder="Titulo" /><br>
-  <input id="projectDescription" type="text" placeholder="descricao" /><br>
-  <button id="criarProjetoBtn">Criar Projeto</button><br>
-  <button id="cancelarProjetoBtn">Cancelar</button>
-</dialog>
+    <!-- Modal Criar -->
+    <dialog id="dialogCriarProjeto">
+      <h3>Novo Projeto</h3>
+      <input id="projecTitle" type="text" placeholder="Título" /><br><br>
+      <input id="projectDescription" type="text" placeholder="Descrição" /><br><br>
+      <button id="criarProjetoBtn">✅ Criar</button>
+      <button id="cancelarProjetoBtn">❌ Cancelar</button>
+    </dialog>
 
-<nav id="resultadoProjetos"> </nav>
-<div id="detalhesProjeto">
-    
-</div>
-        
-    </main>
+    <!-- Modal Editar -->
+    <dialog id="dialogEditarProjeto">
+      <h3>Editar Projeto</h3>
+      <input id="editTitle" type="text" placeholder="Título" /><br><br>
+      <input id="editDescription" type="text" placeholder="Descrição" /><br><br>
+      <button id="salvarEdicaoBtn">💾 Salvar</button>
+      <button id="cancelarEdicaoBtn">❌ Cancelar</button>
+    </dialog>
 
+    <!-- Modal Excluir -->
+    <dialog id="dialogExcluirProjeto">
+      <h3>Tem certeza que deseja excluir?</h3>
+      <button id="confirmarExclusaoBtn">🗑️ Excluir</button>
+      <button id="cancelarExclusaoBtn">❌ Cancelar</button>
+    </dialog>
+
+    <nav id="resultadoProjetos"></nav>
+    <div id="detalhesProjeto"></div>
+  </main>
 </body>
-
-</html>
